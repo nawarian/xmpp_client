@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="bower_components/rsvp/rsvp.js"></script>
+        <script src="bower_components/strophe/strophe.js"></script>
+        
+        <script src="js/XMPPClient.js"></script>
+        
+        <script>
+            var c = XMPPClient();
+            
+            c.connect( 'user', 'pass' )
+            .then( function() {
+                var msg = 'Hey nawarian ;D';
+
+                c.on( 'messageReceived', function( headers, msg ) {
+                    console.warn(
+                        '[:person] says: :msg'
+                        .replace(':person', headers.from)
+                        .replace(':msg', msg)
+                    );
+                } );
+                
+                c.on( 'messageSent', function( headers, msg ) {
+                    console.warn(
+                        '[You] sent to [:person]: :msg'
+                        .replace(':person', headers.to)
+                        .replace(':msg', msg)
+                    );
+                } );
+                
+                // Enviando mensagem para nawarian
+                // "packer-debian-6" é o hostname da máquina virtual
+                c.sendMessage( 'nawarian@packer-debian-6', msg );
+                
+            } )
+            .catch( function() {
+                console.log( 'An error ocurred...' );
+            } );
+        </script>
+        
+    </head>
+    <body>
+        
+        Por favor, abra o console para ver a mágica acontecer.<br><br>
+        
+        Aproveite e instale o pidgin em sua máquina host,<br>
+        crie e conecte-se à conta <strong>nawarian</strong>
+        (utilizada na linha 38 deste arquivo html)
+        <br><br>
+        
+        Converse através do console do navegador:<br>
+        <em>c.sendMessage( 'nawarian@packer-debian-6', 'Sua mensagem aqui' );</em>
+        
+    </body>
+</html>

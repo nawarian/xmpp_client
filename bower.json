@@ -1,0 +1,8 @@
+{
+    "name": "XMPPClient",
+    "license": "MIT",
+    "dependencies": {
+        "rsvp": "3.0.0",
+        "strophe": "1.1.3"
+    }
+}
