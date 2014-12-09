@@ -8,11 +8,11 @@
         <script src="bower_components/rsvp/rsvp.js"></script>
         <script src="bower_components/strophe/strophe.js"></script>
         
-        <script src="js/XMPPClient.js"></script>
+        <script src="src/XMPPClient.js"></script>
         
         <script>
             var c = XMPPClient();
-            
+            // Atualmente está conectando como anônimo
             c.connect( 'user', 'pass' )
             .then( function() {
                 var msg = 'Hey nawarian ;D';
