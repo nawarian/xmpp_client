@@ -25,6 +25,13 @@ do endereço: `http://localhost:9090`. Não se esqueça de habilitar o BOSH e CO
 Em alguns casos será necessário criar a propriedade de sistema seguinte:
 `xmpp.httpbind.scriptSyntax.enabled` com o valor `true` e não encriptada.
 
+* Dica (2)
+É recorrente, também, presenciar algumas exceções do lado servidor por conta de
+configuração:
+** xmpp.httpbind.scriptSyntax.enabled ==> true
+** xmpp.client.processing.threads ==> 16
+** xmpp.httpbind.worker.threads ==> 16
+
 # Cliente XMPP
 Certifique-se de que instalou as dependências através do comando: `bower install`
 

@@ -1,5 +1,6 @@
 .vagrant/
 bower_components/
 node_modules/
-*.deb/
+*.deb
 LICENSE
+/nbproject/*
