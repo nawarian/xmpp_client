@@ -5,12 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <script src="bower_components/rsvp/rsvp.js"></script>
+        <!--<script src="bower_components/rsvp/rsvp.js"></script>
         <script src="bower_components/strophe/strophe.js"></script>
         
-        <script src="src/XMPPClient.js"></script>
-        
-        <script>
+        <script src="src/XMPPClient.js"></script>-->
+        <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="exemplo"></script>
+        <script type="text/javascript" src="src/require.config.js"></script>
+
+        <!--<script>
             var c = XMPPClient();
             // Atualmente está conectando como anônimo
             c.connect( 'user', 'pass' )
@@ -41,7 +43,7 @@
             .catch( function() {
                 console.log( 'An error ocurred...' );
             } );
-        </script>
+        </script>-->
         
     </head>
     <body>
