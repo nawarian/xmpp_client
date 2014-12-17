@@ -3,6 +3,7 @@ xmpp_client
 
 Cliente XMPP básico em Javascript
 
+### [Visite nossa Wiki](https://github.com/nawarian/xmpp_client/wiki)
 
 # Servidor XMPP
 Este projeto é acompanhado de um Vagrantfile que provisiona
