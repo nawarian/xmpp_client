@@ -5,24 +5,27 @@ require(
 	function( BOSHClient ) {
 		
 		var c = new BOSHClient();
-		c.connect()
+
+		c.connect( 'teste@packer-debian-6', 'teste' )
 		.then( function() {
 
 			c.on( 'messageReceived', function( cabecalhos, msg ) {
 
-				// messageReceived
+				console.warn(
+						'[:person] says: :msg'
+						.replace(':person', cabecalhos.from)
+						.replace(':msg', msg)
+				);
 
 			} )
 
-			.on( 'messageSent', function( headers, msg ) {
+			.on( 'messageSent', function( cabecalhos, msg ) {
 
-				// messageSent
-
-			} )
-
-			.on( 'connect', function() {
-
-				console.warn( 'Conexão estabelecida.' );
+				console.warn(
+						'[You] sent to [:person]: :msg'
+						.replace(':person', cabecalhos.to)
+						.replace(':msg', msg)
+				);
 
 			} );
 
