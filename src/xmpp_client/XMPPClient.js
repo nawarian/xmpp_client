@@ -2,10 +2,43 @@
 
 define(
 	'xmpp_client/XMPPClient',
-	[],
-	function() {
+	[ 'xmpp_client/XMPPConnection', 'Strophe' ],
+	function( XMPPConnection ) {
 
-		function XMPPClient() {};
+		function XMPPClient() {
+			this.connection = new XMPPConnection( this );
+
+			this.on( 'statusChange', function( status ) {
+				var s = Strophe.Status;
+				switch( status ) {
+					case s.ATTACHED:
+						this.__dispatch( 'attach' );
+						break;
+					case s.AUTHENTICATING:
+						this.__dispatch( 'authenticating' );
+						break;
+					case s.AUTHFAIL:
+						this.__dispatch( 'authFail' );
+						break;
+					case s.CONNECTED:
+						this.__dispatch( 'connect' );
+						break;
+					case s.CONNFAIL:
+						this.__dispatch( 'connectionFail' );
+						break;
+					case s.DISCONNECTED:
+						this.__dispatch( 'disconnect' );
+						break;
+					case s.DISCONNECTING:
+						this.__dispatch( 'disconnecting' );
+						break;
+					case s.ERROR:
+						this.__dispatch( 'error' );
+						break;
+	            }
+			} );
+
+		};
 		XMPPClient.prototype = {
 
 			connection: null,
@@ -52,7 +85,19 @@ define(
 	        },
 			connect: function() { throw 'Implementar conexão'; },
 			disconnect: function() { throw 'Implementar disconexão'; },
-			sendMessage: function() { throw 'Implementar envio de mensagem' }
+			
+
+			sendMessage: function( destino, mensagem ){
+				var msg = $msg({
+					to: destino,
+					type: 'chat'
+				})
+				.cnode( Strophe.xmlElement( 'body', mensagem ) ).up()
+				.c( 'active', { xmlns: 'http://jabber.org/protocol/chatstates' } );
+
+				this.connection.handler.send( msg );
+				this.__dispatch( 'messageSent', { to: destino }, mensagem );
+			}
 
 		};
 

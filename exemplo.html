@@ -5,46 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <!--<script src="bower_components/rsvp/rsvp.js"></script>
-        <script src="bower_components/strophe/strophe.js"></script>
-        
-        <script src="src/XMPPClient.js"></script>-->
-        <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="exemplo"></script>
+        <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="src/exemplo"></script>
         <script type="text/javascript" src="src/require.config.js"></script>
 
-        <!--<script>
-            var c = XMPPClient();
-            // Atualmente está conectando como anônimo
-            c.connect( 'user', 'pass' )
-            .then( function() {
-                var msg = 'Hey nawarian ;D';
-
-                c.on( 'messageReceived', function( headers, msg ) {
-                    console.warn(
-                        '[:person] says: :msg'
-                        .replace(':person', headers.from)
-                        .replace(':msg', msg)
-                    );
-                } );
-                
-                c.on( 'messageSent', function( headers, msg ) {
-                    console.warn(
-                        '[You] sent to [:person]: :msg'
-                        .replace(':person', headers.to)
-                        .replace(':msg', msg)
-                    );
-                } );
-                
-                // Enviando mensagem para nawarian
-                // "packer-debian-6" é o hostname da máquina virtual
-                c.sendMessage( 'nawarian@packer-debian-6', msg );
-                
-            } )
-            .catch( function() {
-                console.log( 'An error ocurred...' );
-            } );
-        </script>-->
-        
     </head>
     <body>
         
