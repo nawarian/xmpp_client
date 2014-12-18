@@ -1,6 +1,6 @@
 .vagrant/
 bower_components/
 node_modules/
-*.deb
+xmpp-server/*.deb
 LICENSE
 /nbproject/*

@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
         v.customize ["modifyvm", :id, "--memory", 256]
     end
 
-    config.vm.synced_folder ".", "/opt/xmpp-server"
+    config.vm.synced_folder "./xmpp-server", "/opt/xmpp-server"
     config.vm.provision :shell, :path => "./server-provision.sh"
 
 end

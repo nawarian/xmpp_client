@@ -19,8 +19,9 @@ Para que o servidor inicie com sucesso, certifique-se de que seu computador
 não esteja utilizando as portas: `7070`, `5222` e `9090`.
 
 * Importante (2)
-O servidor OpenFire deve ser previamente configurado, faça-o através
-do endereço: `http://localhost:9090`. Não se esqueça de habilitar o BOSH e CORS.
+O servidor OpenFire deve ser configurado pela primeira execução, faça-o através
+do endereço: `http://localhost:9090`.
+Os itens das dicas abaixo já estão implementados de acordo com o provisionamento.
 
 * Dica
 Em alguns casos será necessário criar a propriedade de sistema seguinte:

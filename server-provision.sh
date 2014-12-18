@@ -19,3 +19,9 @@ if [ $? -eq 0]; then
 	echo "Servidor OpenFire (XMPP/Jabber) instalado com sucesso."
 	echo "Acesse: http://localhost:9090"
 fi
+
+# Pré-configurando servidor OpenFire para trabalhar corretamente com BOSH e afins
+cp /opt/xmpp-server/openfire.script /usr/share/openfire/embedded-db/openfire.script
+cp /opt/xmpp-server/openfire.properties /usr/share/openfire/embedded-db/openfire.properties
+
+service openfire restart
