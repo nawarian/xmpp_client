@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XMPP Client</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="src/exemplo2"></script>
+        <script type="text/javascript" src="src/require.config.js"></script>
+        <script src="src/xmpp_client/strophe-openfire.js" type="text/javascript"></script>
+        <style>
+            * {
+                color: #444;
+            }
+            
+            .login {
+                background-color: #ededed;
+                border-radius: 20px;
+                margin: 2em;
+                padding: 2em;
+            }
+            .container {
+                border-radius: 20px;
+                margin: 2em;
+                padding: 2em;
+            }
+
+            input[type="text"] , textArea, input[type="password"] {
+                border: none;
+                border-radius: 2px 2px;
+                margin-top: 1em;  
+                width: 100%;
+                padding: 0.5em;
+            }
+
+            .btn {
+                margin-top: 1em;
+                border: #1abc9c solid 4px;
+                background-color: #1abc9c;
+                padding: 1em 1em;
+            }
+
+            .btn:hover {
+                border-color: #888;
+            }
+            
+            .receiver {
+                width: 100%;
+            }
+            
+            .message {
+                width: 100%;
+            }
+            
+            .msg-sender {
+                display: none;
+                background-color: #ededed;
+                border-radius: 20px;
+                margin: 2em;
+                padding: 2em;
+            }
+            .messageList{
+                background-color: #fff;
+                border: #ddd solid 1px;
+                padding: 2em 2em;
+            }
+            
+            .messageList .msg-received {
+                border-radius: 20px 20px 0 20px;
+                background-color: #ededed;
+                padding: 1em;
+                margin: 1em;
+            }
+            
+            .messageList .msg-sent {
+                border-radius: 20px 20px 20px 0;
+                background-color:#1abc9c;
+                padding: 1em;
+                color: #fff;
+                margin: 1em;
+            }
+            
+            .warning-msg {
+                background-color: #ecf0f1;
+                display: none;
+                border-radius: 20px 20px 20px 0;
+                background-color:#1abc9c;
+                padding: 1em;
+                color: #fff;
+                margin: 1em;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="warning-msg" id="warning-msg">
+                
+            </div>
+            
+            <div class="login" id="login">                
+                <label> Usuário 
+                    <input type="text" name="username" id="username"/>
+                </label>
+                
+                <label> Senha 
+                    <input type="password" name="password" id="password"/>
+                </label>   
+                
+                <button class="btn" id="btn-login"> Entrar </button>
+            </div>
+            
+            <div class="msg-sender" id="msg-sender">
+                <div class="messageList" id="messageList">
+                </div>
+                <div class="receiver">
+                    <label for="destino"> Destino: 
+                        <input id="destino" type="text">
+                    </label><br/>
+                </div>
+                <div class="message">
+                    <label for="mensagem"> Mensagem: 
+                        <textarea id="mensagem" rows="7"></textarea>
+                    </label>
+                    <button class="btn" id="sendButton"> Enviar </button>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
